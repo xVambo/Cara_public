@@ -29,7 +29,7 @@ export default class Command extends BaseCommand {
                     categories[info.config.category].push(info)
                 }
             }
-            let text = `🍃 Cara\'s Command List 🍃\n--> Official group:-  http://gg.gg/Arus-Das-cara\n\n💡 *Prefix:* " */* "\n\n`
+            let text = `🍃 Cara\'s Command List 🍃\n--> Official group:-  http://gg.gg/Arus-Das-cara\n\n💡 *Prefix:* " *${this.client.config.prefix}* "\n\n`
             const keys = Object.keys(categories).sort((a, b) => a.localeCompare(b))
             for (const key of keys)
                 text += `${this.emojis[keys.indexOf(key)]} *${this.client.util.capitalize(key)}*\n❐ \`\`\`${categories[
