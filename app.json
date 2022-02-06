@@ -25,7 +25,7 @@
       "HEROKU_API": {
           "description": "A api for accessing the heroku."
       },
-      "HEROKU_DYNO-NAME": {
+      "HEROKU_DYNO_NAME": {
           "description": "A string for defining the heroku dyno."
       },
       "MODS": {
