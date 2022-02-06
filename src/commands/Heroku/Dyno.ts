@@ -3,7 +3,7 @@ import BaseCommand from '../../lib/BaseCommand'
 import WAClient from '../../lib/WAClient'
 import { ISimplifiedMessage } from '../../typings'
 import axios from 'axios'
-import { Heroku } from 'heroku-client'
+import Heroku from 'heroku-client'
 import got from 'got'
 
 import request from '../../lib/request'
