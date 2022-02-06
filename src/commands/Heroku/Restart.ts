@@ -4,6 +4,11 @@ import WAClient from '../../lib/WAClient'
 import { ISimplifiedMessage } from '../../typings'
 import axios from 'axios'
 import Heroku from 'heroku-client'
+const heroku = new Heroku({
+    token: `${this.client.config.hapi}`
+});
+const baseURI = '/apps/' + `${this.client.config.hname}`
+
 import request from '../../lib/request'
 import { MessageType } from '@adiwajshing/baileys'
 // import { MessageType, Mimetype } from '@adiwajshing/baileys'
@@ -24,10 +29,6 @@ export default class Command extends BaseCommand {
     run = async (M: ISimplifiedMessage): Promise<void> => {
 if (!this.client.config.hapi) return void M.reply("No heroku API key set");
     if (!this.client.config.hname) return void M.reply("No heroku name set");
-const heroku = new Heroku({
-    token: `${this.client.config.hapi}`
-});
-const baseURI = '/apps/' + `${this.client.config.hname}`
     await M.reply(`Restarting.............`)
 await heroku.delete(baseURI + '/dynos').catch(async (error: any) => {
         await M.reply("Error");
