@@ -27,8 +27,8 @@ export default class Command extends BaseCommand {
     }
 
     run = async (M: ISimplifiedMessage): Promise<void> => {
-if (!this.client.config.hapi) return void M.reply("No heroku API key set");
-    if (!this.client.config.hname) return void M.reply("No heroku name set");
+//if (!this.client.config.hapi) return void M.reply("No heroku API key set");
+    //if (!this.client.config.hname) return void M.reply("No heroku name set");
     await M.reply(`Restarting.............`)
 await heroku.delete(baseURI + '/dynos').catch(async (error: any) => {
         await M.reply("Error");
