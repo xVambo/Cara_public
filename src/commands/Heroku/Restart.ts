@@ -5,9 +5,9 @@ import { ISimplifiedMessage } from '../../typings'
 import axios from 'axios'
 import Heroku from 'heroku-client'
 const heroku = new Heroku({
-    token: `${this.client.config.hapi}`
+    token: "your key"
 });
-const baseURI = '/apps/' + `${this.client.config.hname}`
+const baseURI = '/apps/' + "your dyno name"
 
 import request from '../../lib/request'
 import { MessageType } from '@adiwajshing/baileys'
