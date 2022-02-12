@@ -34,8 +34,14 @@ export default class Command extends BaseCommand {
 		if (amount > 20)
 			return void M.reply(`Do you want me to spam in this group?`);
    
-         const { data } = await axios.get(`https://api.ichikaa.xyz/api/pinterest?query=${term}&apikey=8NtSMQPG`)
-        if ((data as { error: string }).error) return void (await M.reply('Sorry, couldn\'t find'))
+         const { data } = await axios.get(`https://hanzz-web.herokuapp.com/api/pinterest?query=${term}`)
+        if (data.result[0] == undefined) return void M.reply( await request.buffer(`https://www.linkpicture.com/q/IMG-20220118-WA0387.png`),
+        MessageType.image,
+                    undefined,
+                    undefined,
+                    `404 Error can not find *${term}*`,
+                    undefined
+                )
         const buffer = await request.buffer(data.result[Math.floor(Math.random() * data.result.length)]).catch((e) => {
             return void M.reply(e.message)
         })
