@@ -24,13 +24,7 @@ export default class Command extends BaseCommand {
         const chitoge = joined.trim()
         console.log(chitoge)
         const { data } = await axios.get(`https://hanzz-web.herokuapp.com/api/igdl?url=${chitoge}`)
-        if (data.result.error) return void M.reply( await request.buffer(`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEIJBLGeoanLhbUyzTNXLXXRPUDjUuDKIS8g&usqp=CAU`),
-        MessageType.image,
-                    undefined,
-                    undefined,
-                    `*Sorry, couldn\'t find or some errors occurred*`,
-                    undefined
-                )
+        if (data.result.error) return void M.reply(`*Sorry, couldn\'t find or some errors occurred*`)
 switch (data.result.medias[0].type) {
   case 'image':
     M.reply( await request.buffer(data.result.medias[0].url),
